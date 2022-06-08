@@ -1,0 +1,18 @@
+version: '3.7'
+
+services:
+  
+  data:
+    image: postgres
+    container_name: data_base
+    ports:  
+      - 5432:5432
+    env_file:
+      - env/postgres.env
+    volumes:
+      - pgdata:/data/postgres
+    
+
+volumes:
+  pgdata:
+    driver: local
