@@ -1,6 +1,9 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { TasksModule } from './tasks/tasks.module';
+import { AuthModule } from './auth/auth.module';
+import { PassportModule } from '@nestjs/passport';
+import { JwtModule } from '@nestjs/jwt';
 
 @Module({
   imports: [TasksModule,
@@ -13,7 +16,8 @@ import { TasksModule } from './tasks/tasks.module';
     database: 'task-management',
     autoLoadEntities: true,
     synchronize: true,
-  })
+  }),
+  AuthModule
 ],
 })
 export class AppModule {}
